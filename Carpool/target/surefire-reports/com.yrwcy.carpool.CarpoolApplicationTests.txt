@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------
+Test set: com.yrwcy.carpool.CarpoolApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 7.863 s <<< FAILURE! - in com.yrwcy.carpool.CarpoolApplicationTests
+contextLoads  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: java.lang.IllegalStateException: Failed to execute CommandLineRunner
+Caused by: org.mybatis.spring.MyBatisSystemException: 
+nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '223.210.17.21' is not allowed to connect to this MySQL server"
+### The error may exist in com/yrwcy/carpool/mapper/CarpoolFormMapper.java (best guess)
+### The error may involve com.yrwcy.carpool.mapper.CarpoolFormMapper.selectList
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '223.210.17.21' is not allowed to connect to this MySQL server"
+Caused by: org.apache.ibatis.exceptions.PersistenceException: 
+
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '223.210.17.21' is not allowed to connect to this MySQL server"
+### The error may exist in com/yrwcy/carpool/mapper/CarpoolFormMapper.java (best guess)
+### The error may involve com.yrwcy.carpool.mapper.CarpoolFormMapper.selectList
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '223.210.17.21' is not allowed to connect to this MySQL server"
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: null,  message from server: "Host '223.210.17.21' is not allowed to connect to this MySQL server"
+Caused by: java.sql.SQLException: null,  message from server: "Host '223.210.17.21' is not allowed to connect to this MySQL server"
+

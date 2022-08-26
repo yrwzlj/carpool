@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yrwcy.carpool.mapper.CarpoolFormMapper">
+
+
+
+    <select id="selectByDestination" resultType="map">
+        SELECT carpool_form.* FROM carpool_form WHERE carpool_form.destination=#{destination} AND carpool_form.status='ing'
+                AND carpool_form.need_count>carpool_form.people_number
+    </select>
+
+    <select id="selectById" resultType="map">
+        SELECT carpool_form.*,`user`.name, carpool.user.phone,carpool.user.credit_points,carpool.user.head_portrait FROM
+                carpool_form JOIN user ON carpool_form.id=#{id} AND user.student_id=carpool_form.student_id
+    </select>
+
+    <select id="hangMessage" resultType="map">
+        SELECT carpool_form.* FROM carpool_form JOIN `group` ON `group`.student_id=#{id} AND carpool_form.id=`group`.form_id
+    </select>
+
+
+</mapper>

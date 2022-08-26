@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yrwcy.carpool.mapper.GroupMapper">
+
+
+
+    <select id="getSnoList" resultType="String">
+        SELECT `group`.student_id FROM `group` WHERE `group`.form_id=#{id}
+    </select>
+
+
+
+</mapper>

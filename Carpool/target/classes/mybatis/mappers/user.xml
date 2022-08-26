@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yrwcy.carpool.mapper.UserMapper">
+
+    <select id="userDetailsList" resultType="map">
+        SELECT `user`.head_portrait,`user`.name,`user`.credit_points, `user`.phone,`user`.student_id FROM
+            `user` JOIN `group` ON `group`.form_id=#{formId} AND `group`.student_id=`user`.student_id
+    </select>
+
+<!--    getOneHeadPortrait-->
+    <select id="getOneHeadPortrait" resultType="String">
+        SELECT carpool.user.head_portrait FROM `user` WHERE carpool.user.student_id=#{id}
+    </select>
+
+    <select id="selHeadPortrait" resultType="String">
+        SELECT `user`.head_portrait FROM
+            `user` JOIN `group` ON `group`.form_id=#{id} AND `group`.student_id=`user`.student_id
+    </select>
+
+
+
+    <select id="userDetails" resultType="map">
+        SELECT `user`.student_id,`user`.head_portrait,`user`.credit_points,`user`.phone,`user`.name FROM
+            `user` WHERE `user`.student_id=#{sno}
+    </select>
+
+
+    <!--public List<User> selectByGroup(String form_id);-->
+    <select id="selectByGroup" resultType="com.yrwcy.carpool.pojo.User">
+        SELECT * FROM `user` WHERE user.student_id IN (SELECT student_id
+                                                       FROM `group` WHERE form_id = #{form_id})
+    </select>
+
+
+</mapper>

@@ -1,0 +1,64 @@
+server:
+  port: 9739
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 500MB #设置允许传输的图片大小
+      max-request-size: 2048MB
+  jackson: #设置获得的时间格式
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  datasource:
+    username: carpool
+    password: 147258
+    url: jdbc:mysql://47.113.216.236:3306/carpool?useSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  http:
+    multipart:
+      location: /data/upload_tmp
+  # 配置springtask 定时任务相关的配置
+  task:
+    scheduling:
+      pool:
+        size: 10
+      thread-name-prefix: hanhan
+    execution:
+      shutdown:
+        #        线程关闭时是否等所有任务结束
+        await-termination: false
+        #        线程最大的等待时间，防止线程陷入循环关不掉
+        await-termination-period: 10s
+  redis:
+    host: 119.91.225.64
+    port: 6379
+    password: 020704Yrw
+
+
+mybatis-plus:
+  mapper-locations: classpath:mybatis/mappers/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+# Sa-Token 配置
+sa-token:
+  token-name: satoken
+  timeout: 86400
+  activity-timeout: -1
+  is-concurrent: false
+  is-share: true
+  token-style: random-32
+  is-log: false
+
+
+
+
+
+
+
+
